@@ -36,6 +36,36 @@
             background-size: 100px 100px, 50px 50px;
         }
         
+        /* Floating cleaning bubbles */
+        .bubbles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        .bubble {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            animation: float-bubble 8s infinite ease-in-out;
+            backdrop-filter: blur(5px);
+        }
+        .bubble:nth-child(1) { left: 10%; width: 20px; height: 20px; animation-delay: 0s; }
+        .bubble:nth-child(2) { left: 20%; width: 15px; height: 15px; animation-delay: 2s; }
+        .bubble:nth-child(3) { left: 35%; width: 25px; height: 25px; animation-delay: 4s; }
+        .bubble:nth-child(4) { left: 50%; width: 18px; height: 18px; animation-delay: 1s; }
+        .bubble:nth-child(5) { left: 70%; width: 22px; height: 22px; animation-delay: 3s; }
+        .bubble:nth-child(6) { left: 85%; width: 16px; height: 16px; animation-delay: 5s; }
+        
+        @keyframes float-bubble {
+            0% { transform: translateY(100vh) scale(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100px) scale(1); opacity: 0; }
+        }
+        
         /* Modern glass-morphism service cards */
         .service-card {
             background: rgba(255, 255, 255, 0.9);
@@ -218,6 +248,51 @@
             100% { left: 100%; }
         }
         
+        /* Sparkle cleaning effects */
+        .sparkles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        .sparkle {
+            position: absolute;
+            color: rgba(59, 130, 246, 0.6);
+            font-size: 12px;
+            animation: sparkle-twinkle 3s infinite ease-in-out;
+        }
+        .sparkle:nth-child(1) { top: 20%; left: 15%; animation-delay: 0s; }
+        .sparkle:nth-child(2) { top: 40%; left: 80%; animation-delay: 1s; }
+        .sparkle:nth-child(3) { top: 70%; left: 25%; animation-delay: 2s; }
+        .sparkle:nth-child(4) { top: 15%; left: 70%; animation-delay: 0.5s; }
+        .sparkle:nth-child(5) { top: 60%; left: 60%; animation-delay: 1.5s; }
+        
+        @keyframes sparkle-twinkle {
+            0%, 100% { opacity: 0; transform: scale(0) rotate(0deg); }
+            50% { opacity: 1; transform: scale(1) rotate(180deg); }
+        }
+        
+        /* Clean sweep effect */
+        .clean-sweep {
+            position: relative;
+            overflow: hidden;
+        }
+        .clean-sweep::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            animation: sweep 4s infinite;
+        }
+        @keyframes sweep {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
         /* Modern form inputs */
         .form-input {
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -253,7 +328,7 @@
         <div class="container mx-auto px-4 py-4">
             <div class="flex items-center justify-between">
                 <div class="flex items-center space-x-3">
-                    <img src="logo.jpg" alt="Homer Cleaning Logo" class="h-12 w-12 rounded-full object-cover shadow-md" style="object-position: center;" onerror="this.src=''; this.alt='Logo Homer Cleaning'; this.style.display='none';">
+                    <img src="logo.jpg" alt="Homer Cleaning Logo" class="h-12 w-12 rounded-full object-cover shadow-md" style="object-position: center; object-fit: cover; width: 48px; height: 48px; transform: scale(1.1);" onerror="this.src=''; this.alt='Logo Homer Cleaning'; this.style.display='none';">
                     <div>
                         <h1 class="text-2xl font-bold text-brand-blue">Homer Cleaning</h1>
                         <p class="text-sm text-brand-light-gray">& Housekeeping</p>
@@ -276,7 +351,22 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="py-24 px-4 clean-pattern">
+    <section class="py-24 px-4 clean-pattern" style="position: relative;">
+        <div class="bubbles">
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+        </div>
+        <div class="sparkles">
+            <div class="sparkle">✨</div>
+            <div class="sparkle">✨</div>
+            <div class="sparkle">✨</div>
+            <div class="sparkle">✨</div>
+            <div class="sparkle">✨</div>
+        </div>
         <div class="container mx-auto text-center">
             <div class="floating-animation mb-12">
                 <div class="inline-block p-6 glass-card rounded-3xl shadow-2xl">
@@ -351,22 +441,22 @@
                 <p class="text-xl text-brand-light-gray max-w-3xl mx-auto leading-relaxed">We offer a wide range of cleaning services to meet all your needs with modern techniques and eco-friendly products.</p>
             </div>
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-                <div class="service-card rounded-3xl p-8 shadow-2xl scroll-reveal-left">
+                <div class="service-card clean-sweep rounded-3xl p-8 shadow-2xl scroll-reveal-left">
                     <img src="serviço1.jpg" alt="Regular house cleaning service" class="w-full h-48 object-cover rounded-2xl mb-6" onerror="this.src=''; this.innerHTML='<div class=\'w-full h-48 bg-gradient-to-br from-brand-blue to-blue-500 rounded-2xl mb-6 flex items-center justify-center text-white text-5xl shadow-inner\'>🏠</div>';">
                     <h4 class="text-xl font-bold text-brand-dark mb-4">Regular House Cleaning</h4>
                     <p class="text-brand-light-gray leading-relaxed">Weekly or bi-weekly maintenance cleaning to keep your home spotless and organized.</p>
                 </div>
-                <div class="service-card rounded-3xl p-8 shadow-2xl scroll-reveal-right">
+                <div class="service-card clean-sweep rounded-3xl p-8 shadow-2xl scroll-reveal-right">
                     <img src="serviço2.jpg" alt="Deep house cleaning service" class="w-full h-48 object-cover rounded-2xl mb-6" onerror="this.src=''; this.innerHTML='<div class=\'w-full h-48 bg-gradient-to-br from-brand-blue to-blue-500 rounded-2xl mb-6 flex items-center justify-center text-white text-5xl shadow-inner\'>✨</div>';">
                     <h4 class="text-xl font-bold text-brand-dark mb-4">Deep House Cleaning</h4>
                     <p class="text-brand-light-gray leading-relaxed">Thorough cleaning including baseboards, inside appliances, and hard-to-reach areas of your home.</p>
                 </div>
-                <div class="service-card rounded-3xl p-8 shadow-2xl scroll-reveal-left">
+                <div class="service-card clean-sweep rounded-3xl p-8 shadow-2xl scroll-reveal-left">
                     <img src="serviço3.jpg" alt="Kitchen and bathroom house cleaning" class="w-full h-48 object-cover rounded-2xl mb-6" onerror="this.src=''; this.innerHTML='<div class=\'w-full h-48 bg-gradient-to-br from-brand-blue to-blue-500 rounded-2xl mb-6 flex items-center justify-center text-white text-5xl shadow-inner\'>🚿</div>';">
                     <h4 class="text-xl font-bold text-brand-dark mb-4">Kitchen & Bathroom Focus</h4>
                     <p class="text-brand-light-gray leading-relaxed">Specialized cleaning for kitchens and bathrooms, sanitizing and deep cleaning these important areas.</p>
                 </div>
-                <div class="service-card rounded-3xl p-8 shadow-2xl scroll-reveal-right">
+                <div class="service-card clean-sweep rounded-3xl p-8 shadow-2xl scroll-reveal-right">
                     <img src="serviço4.jpg" alt="One-time house cleaning service" class="w-full h-48 object-cover rounded-2xl mb-6" onerror="this.src=''; this.innerHTML='<div class=\'w-full h-48 bg-gradient-to-br from-brand-blue to-blue-500 rounded-2xl mb-6 flex items-center justify-center text-white text-5xl shadow-inner\'>🧹</div>';">
                     <h4 class="text-xl font-bold text-brand-dark mb-4">One-Time Cleaning</h4>
                     <p class="text-brand-light-gray leading-relaxed">Perfect for special occasions, spring cleaning, or when you need a fresh start for your home.</p>
@@ -419,7 +509,13 @@
     </section>
 
     <!-- Contact Form Section -->
-    <section id="contato" class="py-20 gradient-bg clean-pattern">
+    <section id="contato" class="py-20 gradient-bg clean-pattern" style="position: relative;">
+        <div class="bubbles">
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+        </div>
         <div class="container mx-auto px-4">
             <div class="max-w-3xl mx-auto">
                 <div class="text-center mb-16 scroll-reveal">
@@ -472,7 +568,7 @@
             <div class="grid md:grid-cols-3 gap-8">
                 <div>
                     <div class="flex items-center space-x-3 mb-4">
-                        <img src="logo.jpg" alt="Homer Cleaning Logo" class="h-10 w-10 rounded-full object-cover" onerror="this.style.display='none';">
+                        <img src="logo.jpg" alt="Homer Cleaning Logo" class="h-10 w-10 rounded-full object-cover" style="object-fit: cover; width: 40px; height: 40px; transform: scale(1.1);" onerror="this.style.display='none';">
                         <div>
                             <h4 class="text-xl font-bold">Homer Cleaning</h4>
                             <p class="text-brand-gray text-sm">& Housekeeping</p>
@@ -571,5 +667,5 @@
             observer.observe(el);
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'981ab48d078d2800',t:'MTc1ODMwMTkxOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'981ad57946f528f8',t:'MTc1ODMwMzI2Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
