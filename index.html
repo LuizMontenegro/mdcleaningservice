@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homer Cleaning and Housekeeping - Serviços de Limpeza Profissional</title>
+    <title>Homer Cleaning and Housekeeping - Professional Cleaning Services</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -24,29 +24,197 @@
         .gradient-bg {
             background: linear-gradient(135deg, #fefefe 0%, #ffffff 50%, #fefefd 100%);
         }
+        
+        /* Enhanced service cards with subtle animations */
         .service-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.6s;
+        }
+        .service-card:hover::before {
+            left: 100%;
         }
         .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(2, 56, 120, 0.1);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(2, 56, 120, 0.15);
         }
+        
+        /* Floating hero animation */
         .floating-animation {
             animation: float 6s ease-in-out infinite;
         }
         @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(2deg); }
+        }
+        
+        /* Fade in animations */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        .fade-in-up.delay-1 { animation-delay: 0.2s; }
+        .fade-in-up.delay-2 { animation-delay: 0.4s; }
+        .fade-in-up.delay-3 { animation-delay: 0.6s; }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Enhanced buttons */
+        .btn-primary {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(2, 56, 120, 0.3);
+        }
+        
+        /* Subtle pulse for status indicator */
+        .pulse-gentle {
+            animation: pulseGentle 2s infinite;
+        }
+        @keyframes pulseGentle {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        /* Enhanced header with backdrop blur */
+        .header-blur {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.95);
+        }
+        
+        /* Smooth reveal for sections */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Scroll animations */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(60px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .scroll-reveal.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .scroll-reveal-left {
+            opacity: 0;
+            transform: translateX(-60px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .scroll-reveal-left.animate {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .scroll-reveal-right {
+            opacity: 0;
+            transform: translateX(60px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .scroll-reveal-right.animate {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .scroll-reveal-scale {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .scroll-reveal-scale.animate {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        /* Enhanced gradient backgrounds */
+        .gradient-blue {
+            background: linear-gradient(135deg, #023878 0%, #0056b3 100%);
+        }
+        
+        /* Subtle shimmer effect for icons */
+        .icon-shimmer {
+            position: relative;
+            overflow: hidden;
+        }
+        .icon-shimmer::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: shimmer 3s infinite;
+        }
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
+        /* Enhanced form inputs */
+        .form-input {
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        .form-input:focus {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(2, 56, 120, 0.1);
+        }
+        
+        /* Subtle background pattern */
+        .pattern-bg {
+            background-image: radial-gradient(circle at 1px 1px, rgba(2, 56, 120, 0.03) 1px, transparent 0);
+            background-size: 20px 20px;
         }
     </style>
 </head>
 <body class="gradient-bg">
     <!-- Header -->
-    <header class="bg-white shadow-lg sticky top-0 z-50">
+    <header class="header-blur shadow-lg sticky top-0 z-50">
         <div class="container mx-auto px-4 py-4">
             <div class="flex items-center justify-between">
                 <div class="flex items-center space-x-3">
-                    <img src="logo.jpg" alt="Homer Cleaning Logo" class="h-12 w-12 rounded-full object-cover shadow-md" onerror="this.src=''; this.alt='Logo Homer Cleaning'; this.style.display='none';">
+                    <img src="logo.jpg" alt="Homer Cleaning Logo" class="h-12 w-12 rounded-full object-cover shadow-md" style="object-position: center;" onerror="this.src=''; this.alt='Logo Homer Cleaning'; this.style.display='none';">
                     <div>
                         <h1 class="text-2xl font-bold text-brand-blue">Homer Cleaning</h1>
                         <p class="text-sm text-brand-light-gray">& Housekeeping</p>
@@ -80,13 +248,13 @@
                     </svg>
                 </div>
             </div>
-            <h2 class="text-5xl font-bold text-brand-dark mb-6">Limpeza Profissional<br><span class="text-brand-blue">que Você Merece</span></h2>
-            <p class="text-xl text-brand-light-gray mb-8 max-w-2xl mx-auto">Transformamos seu espaço com serviços de limpeza de alta qualidade. Confiança, eficiência e resultados impecáveis.</p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#contato" class="bg-brand-blue text-white px-8 py-4 rounded-full font-semibold hover:bg-blue-700 transition-colors shadow-lg">
-                    Solicitar Orçamento
+            <h2 class="text-5xl font-bold text-brand-dark mb-6 fade-in-up">Professional Cleaning<br><span class="text-brand-blue">You Deserve</span></h2>
+            <p class="text-xl text-brand-light-gray mb-8 max-w-2xl mx-auto fade-in-up delay-1">We transform your space with high-quality cleaning services. Trust, efficiency, and impeccable results.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center fade-in-up delay-2">
+                <a href="#contato" class="btn-primary bg-brand-blue text-white px-8 py-4 rounded-full font-semibold hover:bg-blue-700 transition-colors shadow-lg">
+                    Get Quote
                 </a>
-                <a href="tel:+18578881085" class="bg-white text-brand-blue px-8 py-4 rounded-full font-semibold hover:bg-gray-50 transition-colors shadow-lg border-2 border-brand-blue">
+                <a href="tel:+18578881085" class="btn-primary bg-white text-brand-blue px-8 py-4 rounded-full font-semibold hover:bg-gray-50 transition-colors shadow-lg border-2 border-brand-blue">
                     📞 (857) 888-1085
                 </a>
             </div>
@@ -94,42 +262,42 @@
     </section>
 
     <!-- About Section -->
-    <section class="py-16 bg-white">
+    <section class="py-16 bg-white pattern-bg">
         <div class="container mx-auto px-4">
             <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                    <h3 class="text-3xl font-bold text-brand-dark mb-6">Sobre Nossa Empresa</h3>
+                <div class="scroll-reveal-left">
+                    <h3 class="text-3xl font-bold text-brand-dark mb-6">About Our Company</h3>
                     <p class="text-brand-light-gray mb-6 leading-relaxed">
-                        Na Homer Cleaning and Housekeeping, oferecemos serviços de limpeza residencial e comercial com excelência e dedicação. Nossa equipe é treinada para proporcionar resultados impecáveis, usando produtos de qualidade e técnicas profissionais.
+                        At Homer Cleaning and Housekeeping, we provide residential and commercial cleaning services with excellence and dedication. Our team is trained to deliver impeccable results, using quality products and professional techniques.
                     </p>
                     <div class="space-y-4">
                         <div class="flex items-center space-x-3">
-                            <div class="w-6 h-6 bg-brand-blue rounded-full flex items-center justify-center">
+                            <div class="w-6 h-6 bg-brand-blue rounded-full flex items-center justify-center icon-shimmer">
                                 <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                 </svg>
                             </div>
-                            <span class="text-brand-dark">Profissionais qualificados</span>
+                            <span class="text-brand-dark">Qualified professionals</span>
                         </div>
                         <div class="flex items-center space-x-3">
-                            <div class="w-6 h-6 bg-brand-blue rounded-full flex items-center justify-center">
+                            <div class="w-6 h-6 bg-brand-blue rounded-full flex items-center justify-center icon-shimmer">
                                 <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                 </svg>
                             </div>
-                            <span class="text-brand-dark">Produtos de alta qualidade</span>
+                            <span class="text-brand-dark">High-quality products</span>
                         </div>
                         <div class="flex items-center space-x-3">
-                            <div class="w-6 h-6 bg-brand-blue rounded-full flex items-center justify-center">
+                            <div class="w-6 h-6 bg-brand-blue rounded-full flex items-center justify-center icon-shimmer">
                                 <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                 </svg>
                             </div>
-                            <span class="text-brand-dark">Satisfação garantida</span>
+                            <span class="text-brand-dark">Satisfaction guaranteed</span>
                         </div>
                     </div>
                 </div>
-                <div class="text-center">
+                <div class="text-center scroll-reveal-right">
                     <img src="cliente.jpg" alt="Dona do serviço Homer Cleaning" class="w-80 h-80 rounded-full object-cover mx-auto shadow-2xl" onerror="this.src=''; this.alt='Profissional Homer Cleaning'; this.innerHTML='<div class=\'w-80 h-80 rounded-full bg-brand-blue flex items-center justify-center text-white text-6xl font-bold mx-auto shadow-2xl\'>HC</div>';">
                 </div>
             </div>
@@ -139,20 +307,20 @@
     <!-- Services Section -->
     <section class="py-16 gradient-bg">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h3 class="text-3xl font-bold text-brand-dark mb-4">Nossos Serviços</h3>
-                <p class="text-brand-light-gray max-w-2xl mx-auto">Oferecemos uma ampla gama de serviços de limpeza para atender todas as suas necessidades.</p>
+            <div class="text-center mb-12 scroll-reveal">
+                <h3 class="text-3xl font-bold text-brand-dark mb-4">Our Services</h3>
+                <p class="text-brand-light-gray max-w-2xl mx-auto">We offer a wide range of cleaning services to meet all your needs.</p>
             </div>
             <div class="grid md:grid-cols-2 gap-8 mb-12">
-                <div class="service-card bg-white rounded-2xl p-8 shadow-lg">
-                    <img src="serviço1.jpg" alt="Serviço de limpeza residencial" class="w-full h-48 object-cover rounded-xl mb-6" onerror="this.src=''; this.innerHTML='<div class=\'w-full h-48 bg-brand-blue rounded-xl mb-6 flex items-center justify-center text-white text-4xl\'>🏠</div>';">
-                    <h4 class="text-xl font-bold text-brand-dark mb-3">Limpeza Residencial</h4>
-                    <p class="text-brand-light-gray">Limpeza completa da sua casa, incluindo todos os cômodos, banheiros, cozinha e áreas comuns.</p>
+                <div class="service-card bg-white rounded-2xl p-8 shadow-lg scroll-reveal-left">
+                    <img src="serviço1.jpg" alt="Residential cleaning service" class="w-full h-48 object-cover rounded-xl mb-6" onerror="this.src=''; this.innerHTML='<div class=\'w-full h-48 bg-brand-blue rounded-xl mb-6 flex items-center justify-center text-white text-4xl\'>🏠</div>';">
+                    <h4 class="text-xl font-bold text-brand-dark mb-3">Residential Cleaning</h4>
+                    <p class="text-brand-light-gray">Complete cleaning of your home, including all rooms, bathrooms, kitchen, and common areas.</p>
                 </div>
-                <div class="service-card bg-white rounded-2xl p-8 shadow-lg">
-                    <img src="serviço2.jpg" alt="Serviço de limpeza comercial" class="w-full h-48 object-cover rounded-xl mb-6" onerror="this.src=''; this.innerHTML='<div class=\'w-full h-48 bg-brand-blue rounded-xl mb-6 flex items-center justify-center text-white text-4xl\'>🏢</div>';">
-                    <h4 class="text-xl font-bold text-brand-dark mb-3">Limpeza Comercial</h4>
-                    <p class="text-brand-light-gray">Serviços especializados para escritórios, lojas e estabelecimentos comerciais.</p>
+                <div class="service-card bg-white rounded-2xl p-8 shadow-lg scroll-reveal-right">
+                    <img src="serviço2.jpg" alt="Commercial cleaning service" class="w-full h-48 object-cover rounded-xl mb-6" onerror="this.src=''; this.innerHTML='<div class=\'w-full h-48 bg-brand-blue rounded-xl mb-6 flex items-center justify-center text-white text-4xl\'>🏢</div>';">
+                    <h4 class="text-xl font-bold text-brand-dark mb-3">Commercial Cleaning</h4>
+                    <p class="text-brand-light-gray">Specialized services for offices, stores, and commercial establishments.</p>
                 </div>
             </div>
         </div>
@@ -162,37 +330,38 @@
     <section class="py-16 bg-white">
         <div class="container mx-auto px-4">
             <div class="max-w-4xl mx-auto">
-                <div class="text-center mb-12">
-                    <h3 class="text-3xl font-bold text-brand-dark mb-4">Horário de Funcionamento</h3>
+                <div class="text-center mb-12 scroll-reveal">
+                    <h3 class="text-3xl font-bold text-brand-dark mb-4">Business Hours</h3>
+                    <div class="inline-flex items-center bg-green-100 text-green-800 px-4 py-2 rounded-full font-semibold">
                 </div>
-                <div class="bg-gradient-to-r from-brand-blue to-blue-600 rounded-2xl p-8 text-white">
+                <div class="gradient-blue rounded-2xl p-8 text-white shadow-2xl scroll-reveal-scale">
                     <div class="grid md:grid-cols-2 gap-6">
                         <div class="space-y-4">
                             <div class="flex justify-between items-center py-2 border-b border-blue-300">
-                                <span class="font-semibold">Segunda-feira</span>
+                                <span class="font-semibold">Monday</span>
                                 <span>8:00 AM - 5:00 PM</span>
                             </div>
                             <div class="flex justify-between items-center py-2 border-b border-blue-300">
-                                <span class="font-semibold">Terça-feira</span>
+                                <span class="font-semibold">Tuesday</span>
                                 <span>8:00 AM - 5:00 PM</span>
                             </div>
                             <div class="flex justify-between items-center py-2 border-b border-blue-300">
-                                <span class="font-semibold">Quarta-feira</span>
+                                <span class="font-semibold">Wednesday</span>
                                 <span>8:00 AM - 5:00 PM</span>
                             </div>
                         </div>
                         <div class="space-y-4">
                             <div class="flex justify-between items-center py-2 border-b border-blue-300">
-                                <span class="font-semibold">Quinta-feira</span>
+                                <span class="font-semibold">Thursday</span>
                                 <span>8:00 AM - 5:00 PM</span>
                             </div>
                             <div class="flex justify-between items-center py-2 border-b border-blue-300">
-                                <span class="font-semibold">Sexta-feira</span>
+                                <span class="font-semibold">Friday</span>
                                 <span>8:00 AM - 5:00 PM</span>
                             </div>
                             <div class="flex justify-between items-center py-2">
-                                <span class="font-semibold">Sáb/Dom</span>
-                                <span class="text-red-200">Fechado</span>
+                                <span class="font-semibold">Sat/Sun</span>
+                                <span class="text-red-200">Closed</span>
                             </div>
                         </div>
                     </div>
@@ -205,44 +374,44 @@
     <section id="contato" class="py-16 gradient-bg">
         <div class="container mx-auto px-4">
             <div class="max-w-2xl mx-auto">
-                <div class="text-center mb-12">
-                    <h3 class="text-3xl font-bold text-brand-dark mb-4">Solicite seu Orçamento</h3>
-                    <p class="text-brand-light-gray">Preencha o formulário abaixo e entraremos em contato via WhatsApp</p>
+                <div class="text-center mb-12 scroll-reveal">
+                    <h3 class="text-3xl font-bold text-brand-dark mb-4">Request Your Quote</h3>
+                    <p class="text-brand-light-gray">Fill out the form below and we'll contact you via WhatsApp</p>
                 </div>
-                <form id="contactForm" class="bg-white rounded-2xl p-8 shadow-xl">
+                <form id="contactForm" class="bg-white rounded-2xl p-8 shadow-xl scroll-reveal-scale">
                     <div class="grid md:grid-cols-2 gap-6 mb-6">
                         <div>
-                            <label class="block text-brand-dark font-semibold mb-2">Nome Completo</label>
-                            <input type="text" id="nome" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-transparent">
+                            <label class="block text-brand-dark font-semibold mb-2">Full Name</label>
+                            <input type="text" id="nome" required class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-transparent">
                         </div>
                         <div>
-                            <label class="block text-brand-dark font-semibold mb-2">Telefone</label>
-                            <input type="tel" id="telefone" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-transparent">
+                            <label class="block text-brand-dark font-semibold mb-2">Phone</label>
+                            <input type="tel" id="telefone" required class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-transparent">
                         </div>
                     </div>
                     <div class="mb-6">
-                        <label class="block text-brand-dark font-semibold mb-2">Endereço</label>
-                        <input type="text" id="endereco" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-transparent">
+                        <label class="block text-brand-dark font-semibold mb-2">Address</label>
+                        <input type="text" id="endereco" required class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-transparent">
                     </div>
                     <div class="mb-6">
-                        <label class="block text-brand-dark font-semibold mb-2">Tipo de Serviço</label>
-                        <select id="servico" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-transparent">
-                            <option value="">Selecione o serviço</option>
-                            <option value="Limpeza Residencial">Limpeza Residencial</option>
-                            <option value="Limpeza Comercial">Limpeza Comercial</option>
-                            <option value="Limpeza Pós-Obra">Limpeza Pós-Obra</option>
-                            <option value="Limpeza Pesada">Limpeza Pesada</option>
+                        <label class="block text-brand-dark font-semibold mb-2">Service Type</label>
+                        <select id="servico" required class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-transparent">
+                            <option value="">Select service</option>
+                            <option value="Residential Cleaning">Residential Cleaning</option>
+                            <option value="Commercial Cleaning">Commercial Cleaning</option>
+                            <option value="Post-Construction Cleaning">Post-Construction Cleaning</option>
+                            <option value="Deep Cleaning">Deep Cleaning</option>
                         </select>
                     </div>
                     <div class="mb-6">
-                        <label class="block text-brand-dark font-semibold mb-2">Mensagem (Opcional)</label>
-                        <textarea id="mensagem" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-transparent" placeholder="Descreva detalhes sobre o serviço desejado..."></textarea>
+                        <label class="block text-brand-dark font-semibold mb-2">Message (Optional)</label>
+                        <textarea id="mensagem" rows="4" class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-transparent" placeholder="Describe details about the desired service..."></textarea>
                     </div>
-                    <button type="submit" class="w-full bg-brand-blue text-white py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-lg flex items-center justify-center space-x-2">
+                    <button type="submit" class="btn-primary w-full bg-brand-blue text-white py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-lg flex items-center justify-center space-x-2">
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
                         </svg>
-                        <span>Enviar via WhatsApp</span>
+                        <span>Send via WhatsApp</span>
                     </button>
                 </form>
             </div>
@@ -261,18 +430,18 @@
                             <p class="text-brand-gray text-sm">& Housekeeping</p>
                         </div>
                     </div>
-                    <p class="text-brand-gray">Serviços de limpeza profissional com qualidade e confiança.</p>
+                    <p class="text-brand-gray">Professional cleaning services with quality and trust.</p>
                 </div>
                 <div>
-                    <h5 class="font-bold mb-4">Contato</h5>
+                    <h5 class="font-bold mb-4">Contact</h5>
                     <div class="space-y-2 text-brand-gray">
                         <p>📍 1 Russell St, Everett, MA 02149</p>
                         <p>📞 (857) 888-1085</p>
-                        <p>🕒 Seg-Sex: 8:00 AM - 5:00 PM</p>
+                        <p>🕒 Mon-Fri: 8:00 AM - 5:00 PM</p>
                     </div>
                 </div>
                 <div>
-                    <h5 class="font-bold mb-4">Redes Sociais</h5>
+                    <h5 class="font-bold mb-4">Social Media</h5>
                     <div class="flex space-x-4">
                         <a href="https://www.instagram.com/mdcleaningboston/" target="_blank" rel="noopener noreferrer" class="bg-brand-blue p-3 rounded-full hover:bg-blue-600 transition-colors">
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -288,7 +457,7 @@
                 </div>
             </div>
             <div class="border-t border-brand-darker mt-8 pt-8 text-center text-brand-gray">
-                <p>&copy; 2024 Homer Cleaning and Housekeeping. Todos os direitos reservados.</p>
+                <p>&copy; 2024 Homer Cleaning and Housekeeping. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -303,17 +472,17 @@
             const servico = document.getElementById('servico').value;
             const mensagem = document.getElementById('mensagem').value;
             
-            let whatsappMessage = `Olá! Gostaria de solicitar um orçamento para serviços de limpeza.\n\n`;
-            whatsappMessage += `*Nome:* ${nome}\n`;
-            whatsappMessage += `*Telefone:* ${telefone}\n`;
-            whatsappMessage += `*Endereço:* ${endereco}\n`;
-            whatsappMessage += `*Tipo de Serviço:* ${servico}\n`;
+            let whatsappMessage = `Hello! I would like to request a quote for cleaning services.\n\n`;
+            whatsappMessage += `*Name:* ${nome}\n`;
+            whatsappMessage += `*Phone:* ${telefone}\n`;
+            whatsappMessage += `*Address:* ${endereco}\n`;
+            whatsappMessage += `*Service Type:* ${servico}\n`;
             
             if (mensagem.trim()) {
-                whatsappMessage += `*Mensagem:* ${mensagem}\n`;
+                whatsappMessage += `*Message:* ${mensagem}\n`;
             }
             
-            whatsappMessage += `\nAguardo retorno. Obrigado!`;
+            whatsappMessage += `\nI look forward to your response. Thank you!`;
             
             const encodedMessage = encodeURIComponent(whatsappMessage);
             const whatsappURL = `https://wa.me/18578881085?text=${encodedMessage}`;
@@ -334,6 +503,25 @@
                 }
             });
         });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all scroll reveal elements
+        document.querySelectorAll('.scroll-reveal, .scroll-reveal-left, .scroll-reveal-right, .scroll-reveal-scale').forEach(el => {
+            observer.observe(el);
+        });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9819c279a7f0dc24',t:'MTc1ODI5MjAwMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'981a84d0350f6f7f',t:'MTc1ODI5OTk2My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
