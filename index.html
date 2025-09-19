@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homer Cleaning and Housekeeping - Professional Cleaning Services</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -15,6 +16,9 @@
                         'brand-darker': '#1b1b20',
                         'brand-gray': '#b7b7b8',
                         'brand-light-gray': '#acacac'
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif']
                     }
                 }
             }
@@ -22,11 +26,21 @@
     </script>
     <style>
         .gradient-bg {
-            background: linear-gradient(135deg, #fefefe 0%, #ffffff 50%, #fefefd 100%);
+            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 50%, #f1f5f9 100%);
         }
         
-        /* Enhanced service cards with subtle animations */
+        .clean-pattern {
+            background-image: 
+                radial-gradient(circle at 25px 25px, rgba(2, 56, 120, 0.02) 2px, transparent 2px),
+                radial-gradient(circle at 75px 75px, rgba(59, 130, 246, 0.02) 1px, transparent 1px);
+            background-size: 100px 100px, 50px 50px;
+        }
+        
+        /* Modern glass-morphism service cards */
         .service-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
@@ -38,15 +52,16 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
             transition: left 0.6s;
         }
         .service-card:hover::before {
             left: 100%;
         }
         .service-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 25px 50px rgba(2, 56, 120, 0.15);
+            transform: translateY(-12px);
+            box-shadow: 0 32px 64px rgba(2, 56, 120, 0.12);
+            background: rgba(255, 255, 255, 0.95);
         }
         
         /* Floating hero animation */
@@ -75,11 +90,12 @@
             }
         }
         
-        /* Enhanced buttons */
+        /* Modern enhanced buttons */
         .btn-primary {
             position: relative;
             overflow: hidden;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
         }
         .btn-primary::before {
             content: '';
@@ -88,15 +104,21 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.6s;
         }
         .btn-primary:hover::before {
             left: 100%;
         }
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(2, 56, 120, 0.3);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(2, 56, 120, 0.25);
+        }
+        
+        .btn-glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
         
         /* Subtle pulse for status indicator */
@@ -108,10 +130,11 @@
             50% { opacity: 0.7; }
         }
         
-        /* Enhanced header with backdrop blur */
+        /* Modern glass header */
         .header-blur {
-            backdrop-filter: blur(10px);
-            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(25px);
+            background: rgba(255, 255, 255, 0.85);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
         }
         
         /* Smooth reveal for sections */
@@ -166,9 +189,13 @@
             transform: scale(1);
         }
         
-        /* Enhanced gradient backgrounds */
+        /* Modern gradient backgrounds */
         .gradient-blue {
-            background: linear-gradient(135deg, #023878 0%, #0056b3 100%);
+            background: linear-gradient(135deg, #023878 0%, #1e40af 50%, #3b82f6 100%);
+        }
+        
+        .gradient-clean {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
         }
         
         /* Subtle shimmer effect for icons */
@@ -191,20 +218,32 @@
             100% { left: 100%; }
         }
         
-        /* Enhanced form inputs */
+        /* Modern form inputs */
         .form-input {
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid rgba(226, 232, 240, 0.8);
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
         }
         .form-input:focus {
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(2, 56, 120, 0.1);
+            box-shadow: 0 12px 32px rgba(2, 56, 120, 0.08);
+            background: rgba(255, 255, 255, 0.95);
+            border-color: rgba(59, 130, 246, 0.5);
         }
         
-        /* Subtle background pattern */
+        /* Modern clean patterns */
         .pattern-bg {
-            background-image: radial-gradient(circle at 1px 1px, rgba(2, 56, 120, 0.03) 1px, transparent 0);
-            background-size: 20px 20px;
+            background-image: 
+                radial-gradient(circle at 20px 20px, rgba(2, 56, 120, 0.02) 1px, transparent 1px),
+                linear-gradient(0deg, rgba(248, 250, 252, 0.5) 50%, transparent 50%);
+            background-size: 40px 40px, 100% 2px;
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
     </style>
 </head>
@@ -237,24 +276,24 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="py-20 px-4">
+    <section class="py-24 px-4 clean-pattern">
         <div class="container mx-auto text-center">
-            <div class="floating-animation mb-8">
-                <div class="inline-block p-4 bg-white rounded-full shadow-lg">
-                    <svg class="w-16 h-16 text-brand-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="floating-animation mb-12">
+                <div class="inline-block p-6 glass-card rounded-3xl shadow-2xl">
+                    <svg class="w-20 h-20 text-brand-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 3v18m0 0l-7-7m7 7l7-7"></path>
                         <circle cx="12" cy="12" r="3" fill="currentColor"></circle>
                     </svg>
                 </div>
             </div>
-            <h2 class="text-5xl font-bold text-brand-dark mb-6 fade-in-up">Professional Cleaning<br><span class="text-brand-blue">You Deserve</span></h2>
-            <p class="text-xl text-brand-light-gray mb-8 max-w-2xl mx-auto fade-in-up delay-1">We transform your space with high-quality cleaning services. Trust, efficiency, and impeccable results.</p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center fade-in-up delay-2">
-                <a href="#contato" class="btn-primary bg-brand-blue text-white px-8 py-4 rounded-full font-semibold hover:bg-blue-700 transition-colors shadow-lg">
+            <h2 class="text-6xl font-bold text-brand-dark mb-8 fade-in-up leading-tight">Professional Cleaning<br><span class="text-brand-blue bg-gradient-to-r from-brand-blue to-blue-500 bg-clip-text text-transparent">You Deserve</span></h2>
+            <p class="text-2xl text-brand-light-gray mb-12 max-w-3xl mx-auto fade-in-up delay-1 leading-relaxed">We transform your space with high-quality cleaning services. Trust, efficiency, and impeccable results.</p>
+            <div class="flex flex-col sm:flex-row gap-6 justify-center fade-in-up delay-2">
+                <a href="#contato" class="btn-primary bg-brand-blue text-white px-10 py-5 rounded-2xl font-semibold hover:bg-blue-700 transition-colors shadow-2xl text-lg">
                     Get Quote
                 </a>
-                <a href="tel:+18578881085" class="btn-primary bg-white text-brand-blue px-8 py-4 rounded-full font-semibold hover:bg-gray-50 transition-colors shadow-lg border-2 border-brand-blue">
+                <a href="tel:+18578881085" class="btn-primary btn-glass text-brand-blue px-10 py-5 rounded-2xl font-semibold hover:bg-gray-50 transition-colors shadow-2xl border-2 border-white/30 text-lg">
                     📞 (857) 888-1085
                 </a>
             </div>
@@ -305,32 +344,32 @@
     </section>
 
     <!-- Services Section -->
-    <section class="py-16 gradient-bg">
+    <section class="py-20 gradient-clean">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-12 scroll-reveal">
-                <h3 class="text-3xl font-bold text-brand-dark mb-4">Our Services</h3>
-                <p class="text-brand-light-gray max-w-2xl mx-auto">We offer a wide range of cleaning services to meet all your needs.</p>
+            <div class="text-center mb-16 scroll-reveal">
+                <h3 class="text-4xl font-bold text-brand-dark mb-6">Our Services</h3>
+                <p class="text-xl text-brand-light-gray max-w-3xl mx-auto leading-relaxed">We offer a wide range of cleaning services to meet all your needs with modern techniques and eco-friendly products.</p>
             </div>
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-                <div class="service-card bg-white rounded-2xl p-8 shadow-lg scroll-reveal-left">
-                    <img src="serviço1.jpg" alt="Regular house cleaning service" class="w-full h-48 object-cover rounded-xl mb-6" onerror="this.src=''; this.innerHTML='<div class=\'w-full h-48 bg-brand-blue rounded-xl mb-6 flex items-center justify-center text-white text-4xl\'>🏠</div>';">
-                    <h4 class="text-xl font-bold text-brand-dark mb-3">Regular House Cleaning</h4>
-                    <p class="text-brand-light-gray">Weekly or bi-weekly maintenance cleaning to keep your home spotless and organized.</p>
+                <div class="service-card rounded-3xl p-8 shadow-2xl scroll-reveal-left">
+                    <img src="serviço1.jpg" alt="Regular house cleaning service" class="w-full h-48 object-cover rounded-2xl mb-6" onerror="this.src=''; this.innerHTML='<div class=\'w-full h-48 bg-gradient-to-br from-brand-blue to-blue-500 rounded-2xl mb-6 flex items-center justify-center text-white text-5xl shadow-inner\'>🏠</div>';">
+                    <h4 class="text-xl font-bold text-brand-dark mb-4">Regular House Cleaning</h4>
+                    <p class="text-brand-light-gray leading-relaxed">Weekly or bi-weekly maintenance cleaning to keep your home spotless and organized.</p>
                 </div>
-                <div class="service-card bg-white rounded-2xl p-8 shadow-lg scroll-reveal-right">
-                    <img src="serviço2.jpg" alt="Deep house cleaning service" class="w-full h-48 object-cover rounded-xl mb-6" onerror="this.src=''; this.innerHTML='<div class=\'w-full h-48 bg-brand-blue rounded-xl mb-6 flex items-center justify-center text-white text-4xl\'>✨</div>';">
-                    <h4 class="text-xl font-bold text-brand-dark mb-3">Deep House Cleaning</h4>
-                    <p class="text-brand-light-gray">Thorough cleaning including baseboards, inside appliances, and hard-to-reach areas of your home.</p>
+                <div class="service-card rounded-3xl p-8 shadow-2xl scroll-reveal-right">
+                    <img src="serviço2.jpg" alt="Deep house cleaning service" class="w-full h-48 object-cover rounded-2xl mb-6" onerror="this.src=''; this.innerHTML='<div class=\'w-full h-48 bg-gradient-to-br from-brand-blue to-blue-500 rounded-2xl mb-6 flex items-center justify-center text-white text-5xl shadow-inner\'>✨</div>';">
+                    <h4 class="text-xl font-bold text-brand-dark mb-4">Deep House Cleaning</h4>
+                    <p class="text-brand-light-gray leading-relaxed">Thorough cleaning including baseboards, inside appliances, and hard-to-reach areas of your home.</p>
                 </div>
-                <div class="service-card bg-white rounded-2xl p-8 shadow-lg scroll-reveal-left">
-                    <img src="serviço3.jpg" alt="Kitchen and bathroom house cleaning" class="w-full h-48 object-cover rounded-xl mb-6" onerror="this.src=''; this.innerHTML='<div class=\'w-full h-48 bg-brand-blue rounded-xl mb-6 flex items-center justify-center text-white text-4xl\'>🚿</div>';">
-                    <h4 class="text-xl font-bold text-brand-dark mb-3">Kitchen & Bathroom Focus</h4>
-                    <p class="text-brand-light-gray">Specialized cleaning for kitchens and bathrooms, sanitizing and deep cleaning these important areas.</p>
+                <div class="service-card rounded-3xl p-8 shadow-2xl scroll-reveal-left">
+                    <img src="serviço3.jpg" alt="Kitchen and bathroom house cleaning" class="w-full h-48 object-cover rounded-2xl mb-6" onerror="this.src=''; this.innerHTML='<div class=\'w-full h-48 bg-gradient-to-br from-brand-blue to-blue-500 rounded-2xl mb-6 flex items-center justify-center text-white text-5xl shadow-inner\'>🚿</div>';">
+                    <h4 class="text-xl font-bold text-brand-dark mb-4">Kitchen & Bathroom Focus</h4>
+                    <p class="text-brand-light-gray leading-relaxed">Specialized cleaning for kitchens and bathrooms, sanitizing and deep cleaning these important areas.</p>
                 </div>
-                <div class="service-card bg-white rounded-2xl p-8 shadow-lg scroll-reveal-right">
-                    <img src="serviço4.jpg" alt="One-time house cleaning service" class="w-full h-48 object-cover rounded-xl mb-6" onerror="this.src=''; this.innerHTML='<div class=\'w-full h-48 bg-brand-blue rounded-xl mb-6 flex items-center justify-center text-white text-4xl\'>🧹</div>';">
-                    <h4 class="text-xl font-bold text-brand-dark mb-3">One-Time Cleaning</h4>
-                    <p class="text-brand-light-gray">Perfect for special occasions, spring cleaning, or when you need a fresh start for your home.</p>
+                <div class="service-card rounded-3xl p-8 shadow-2xl scroll-reveal-right">
+                    <img src="serviço4.jpg" alt="One-time house cleaning service" class="w-full h-48 object-cover rounded-2xl mb-6" onerror="this.src=''; this.innerHTML='<div class=\'w-full h-48 bg-gradient-to-br from-brand-blue to-blue-500 rounded-2xl mb-6 flex items-center justify-center text-white text-5xl shadow-inner\'>🧹</div>';">
+                    <h4 class="text-xl font-bold text-brand-dark mb-4">One-Time Cleaning</h4>
+                    <p class="text-brand-light-gray leading-relaxed">Perfect for special occasions, spring cleaning, or when you need a fresh start for your home.</p>
                 </div>
             </div>
         </div>
@@ -380,14 +419,14 @@
     </section>
 
     <!-- Contact Form Section -->
-    <section id="contato" class="py-16 gradient-bg">
+    <section id="contato" class="py-20 gradient-bg clean-pattern">
         <div class="container mx-auto px-4">
-            <div class="max-w-2xl mx-auto">
-                <div class="text-center mb-12 scroll-reveal">
-                    <h3 class="text-3xl font-bold text-brand-dark mb-4">Request Your Quote</h3>
-                    <p class="text-brand-light-gray">Fill out the form below and we'll contact you via WhatsApp</p>
+            <div class="max-w-3xl mx-auto">
+                <div class="text-center mb-16 scroll-reveal">
+                    <h3 class="text-4xl font-bold text-brand-dark mb-6">Request Your Quote</h3>
+                    <p class="text-xl text-brand-light-gray leading-relaxed">Fill out the form below and we'll contact you via WhatsApp with a personalized cleaning solution</p>
                 </div>
-                <form id="contactForm" class="bg-white rounded-2xl p-8 shadow-xl scroll-reveal-scale">
+                <form id="contactForm" class="glass-card rounded-3xl p-10 shadow-2xl scroll-reveal-scale">
                     <div class="grid md:grid-cols-2 gap-6 mb-6">
                         <div>
                             <label class="block text-brand-dark font-semibold mb-2">Full Name</label>
@@ -416,7 +455,7 @@
                         <label class="block text-brand-dark font-semibold mb-2">Message (Optional)</label>
                         <textarea id="mensagem" rows="4" class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-transparent" placeholder="Describe details about the desired service..."></textarea>
                     </div>
-                    <button type="submit" class="btn-primary w-full bg-brand-blue text-white py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-lg flex items-center justify-center space-x-2">
+                    <button type="submit" class="btn-primary w-full bg-brand-blue text-white py-5 rounded-2xl font-semibold hover:bg-blue-700 transition-colors shadow-2xl flex items-center justify-center space-x-3 text-lg">
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
                         </svg>
@@ -466,7 +505,7 @@
                 </div>
             </div>
             <div class="border-t border-brand-darker mt-8 pt-8 text-center text-brand-gray">
-                <p>&copy; 2025 Milo - Marketing de Performance. All rights reserved.</p>
+                <p>&copy; 2024 Homer Cleaning and Housekeeping. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -532,5 +571,5 @@
             observer.observe(el);
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'981a9a6b869bdc15',t:'MTc1ODMwMDg0OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'981ab48d078d2800',t:'MTc1ODMwMTkxOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
