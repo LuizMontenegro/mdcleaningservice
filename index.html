@@ -26,13 +26,10 @@
     </script>
     <style>
         .gradient-bg {
-            background: 
-                linear-gradient(135deg, rgba(248, 250, 252, 0.88) 0%, rgba(255, 255, 255, 0.92) 50%, rgba(241, 245, 249, 0.88) 100%),
-                url('background.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 50%, #f1f5f9 100%);
         }
+        
+
         
         .clean-pattern {
             background-image: 
@@ -51,18 +48,19 @@
         }
         .bubble {
             position: absolute;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.5);
             border-radius: 50%;
             animation: float-bubble 8s infinite ease-in-out;
-            backdrop-filter: blur(5px);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(255, 255, 255, 0.2);
         }
-        .bubble:nth-child(1) { left: 10%; width: 20px; height: 20px; animation-delay: 0s; }
-        .bubble:nth-child(2) { left: 20%; width: 15px; height: 15px; animation-delay: 2s; }
-        .bubble:nth-child(3) { left: 35%; width: 25px; height: 25px; animation-delay: 4s; }
-        .bubble:nth-child(4) { left: 50%; width: 18px; height: 18px; animation-delay: 1s; }
-        .bubble:nth-child(5) { left: 70%; width: 22px; height: 22px; animation-delay: 3s; }
-        .bubble:nth-child(6) { left: 85%; width: 16px; height: 16px; animation-delay: 5s; }
+        .bubble:nth-child(1) { left: 10%; width: 30px; height: 30px; animation-delay: 0s; }
+        .bubble:nth-child(2) { left: 20%; width: 25px; height: 25px; animation-delay: 2s; }
+        .bubble:nth-child(3) { left: 35%; width: 35px; height: 35px; animation-delay: 4s; }
+        .bubble:nth-child(4) { left: 50%; width: 28px; height: 28px; animation-delay: 1s; }
+        .bubble:nth-child(5) { left: 70%; width: 32px; height: 32px; animation-delay: 3s; }
+        .bubble:nth-child(6) { left: 85%; width: 26px; height: 26px; animation-delay: 5s; }
         
         @keyframes float-bubble {
             0% { transform: translateY(100vh) scale(0); opacity: 0; }
@@ -263,9 +261,10 @@
         }
         .sparkle {
             position: absolute;
-            color: rgba(59, 130, 246, 0.6);
-            font-size: 12px;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 18px;
             animation: sparkle-twinkle 3s infinite ease-in-out;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
         }
         .sparkle:nth-child(1) { top: 20%; left: 15%; animation-delay: 0s; }
         .sparkle:nth-child(2) { top: 40%; left: 80%; animation-delay: 1s; }
@@ -356,7 +355,8 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="py-24 px-4 clean-pattern" style="position: relative;">
+    <section class="py-24 px-4 clean-pattern" style="position: relative; background-image: url('background.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; min-height: 100vh;">
+        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, rgba(2, 56, 120, 0.7) 0%, rgba(59, 130, 246, 0.6) 50%, rgba(147, 197, 253, 0.5) 100%); z-index: 1;"></div>
         <div class="bubbles">
             <div class="bubble"></div>
             <div class="bubble"></div>
@@ -372,7 +372,7 @@
             <div class="sparkle">✨</div>
             <div class="sparkle">✨</div>
         </div>
-        <div class="container mx-auto text-center">
+        <div class="container mx-auto text-center relative" style="z-index: 10;">
             <div class="floating-animation mb-12">
                 <div class="inline-block p-6 glass-card rounded-3xl shadow-2xl">
                     <svg class="w-20 h-20 text-brand-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -382,13 +382,13 @@
                     </svg>
                 </div>
             </div>
-            <h2 class="text-6xl font-bold text-brand-dark mb-8 fade-in-up leading-tight">Professional Cleaning<br><span class="text-brand-blue bg-gradient-to-r from-brand-blue to-blue-500 bg-clip-text text-transparent">You Deserve</span></h2>
-            <p class="text-2xl text-brand-light-gray mb-12 max-w-3xl mx-auto fade-in-up delay-1 leading-relaxed">We transform your space with high-quality cleaning services. Trust, efficiency, and impeccable results.</p>
+            <h2 class="text-6xl font-bold text-white mb-8 fade-in-up leading-tight drop-shadow-2xl">Professional Cleaning<br><span class="text-yellow-300 drop-shadow-lg">You Deserve</span></h2>
+            <p class="text-2xl text-white mb-12 max-w-3xl mx-auto fade-in-up delay-1 leading-relaxed drop-shadow-lg">We transform your space with high-quality cleaning services. Trust, efficiency, and impeccable results.</p>
             <div class="flex flex-col sm:flex-row gap-6 justify-center fade-in-up delay-2">
                 <a href="#contato" class="btn-primary bg-brand-blue text-white px-10 py-5 rounded-2xl font-semibold hover:bg-blue-700 transition-colors shadow-2xl text-lg">
                     Get Quote
                 </a>
-                <a href="tel:+18578881085" class="btn-primary btn-glass text-brand-blue px-10 py-5 rounded-2xl font-semibold hover:bg-gray-50 transition-colors shadow-2xl border-2 border-white/30 text-lg">
+                <a href="tel:+18578881085" class="btn-primary bg-white/20 text-white px-10 py-5 rounded-2xl font-semibold hover:bg-white/30 transition-colors shadow-2xl border-2 border-white/50 text-lg backdrop-blur-md">
                     📞 (857) 888-1085
                 </a>
             </div>
@@ -802,5 +802,5 @@
             observer.observe(el);
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'981af7d583466f89',t:'MTc1ODMwNDY3NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'981b1f5dd7f112fd',t:'MTc1ODMwNjI5My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
